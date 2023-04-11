@@ -21,7 +21,7 @@ const Clocks = () => {
 
     useEffect(() => {
         const intervalSecond = setInterval(async () => {
-            setTimeSecond(await timeFetcher());
+            await timeFetcher().then(data => setTimeSecond(data.data));
         }, REFRESH_RATE_API_ABSTRACTAPI * 1000);
 
         return () => clearInterval(intervalSecond);
@@ -53,10 +53,10 @@ const Clocks = () => {
 
             <div className={s.clockInnerContainer}>
                 <div className={s.clockInfo}>
-                    <p>API timezone.abstractapi<br/>(Oxford, United Kingdom)</p>
+                    <p>API timezonedb<br/>(America, Chicago)</p>
                     <span>
                         {(timeSecond && !timeSecond.error)
-                            ? new Date(timeSecond.datetime).toLocaleTimeString()
+                            ? new Date(timeSecond.formatted).toLocaleTimeString()
                             : <span className={s.clockLoading}>Loading..</span>}
                     </span>
                     <p>Refresh rate: {REFRESH_RATE_API_ABSTRACTAPI} seconds</p>
@@ -72,13 +72,13 @@ const Clocks = () => {
                     {timeSecond && (
                         <>
                             <HourHandIcon
-                                style={{transform: `rotate(${new Date(timeSecond.datetime).getHours() * 30 - 160}deg)`}}
+                                style={{transform: `rotate(${new Date(timeSecond.formatted).getHours() * 30 - 160}deg)`}}
                             />
                             <MinuteHandIcon
-                                style={{transform: `rotate(${new Date(timeSecond.datetime).getMinutes() * 6 + 180}deg)`}}
+                                style={{transform: `rotate(${new Date(timeSecond.formatted).getMinutes() * 6 + 180}deg)`}}
                             />
                             <SecondHandIcon
-                                style={{transform: `rotate(${new Date(timeSecond.datetime).getSeconds() * 6 - 180}deg)`}}
+                                style={{transform: `rotate(${new Date(timeSecond.formatted).getSeconds() * 6 - 180}deg)`}}
                             />
                         </>
                     )}

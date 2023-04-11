@@ -1,11 +1,14 @@
+import axios from 'axios';
+
 export const timeFetcher = async () => {
-    const res = await fetch(
-        'https://timezone.abstractapi.com/v1/current_time/?api_key=7b1951fd0e5341a8afce8c5ec4bb33f1&location=Oxford, United Kingdom',
+    return axios.get(
+        'http://api.timezonedb.com/v2.1/get-time-zone?key=I2VJQ0NZWK14&format=json&by=zone&zone=America/Chicago',
         {
             method: 'GET',
-            headers: {'Content-type': 'application/json; charset=UTF-8'},
+            // body: null,
+            headers: {'Content-type': 'application/json',},
+
+
         }
     );
-
-    return res.json();
 };
