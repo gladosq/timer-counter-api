@@ -5,7 +5,7 @@ import {ClockIcon} from '../UI/ClockIcon/ClockIcon';
 import {HourHandIcon} from '../UI/HourHandIcon/HourHandIcon';
 import {SecondHandIcon} from '../UI/SecondHandIcon/SecondHandIcon';
 import {MinuteHandIcon} from '../UI/MinuteHandIcon/MinuteHandIcon';
-import {REFRESH_RATE_API_ABSTRACTAPI, REFRESH_RATE_API_BROWSER} from '../../const/const';
+import {REFRESH_RATE_API_TIMEZONEDB, REFRESH_RATE_API_BROWSER} from '../../const/const';
 
 const Clocks = () => {
     const [timeFirst, setTimeFirst] = useState<Date>(new Date());
@@ -59,11 +59,11 @@ const Clocks = () => {
                             ? new Date(timeSecond.formatted).toLocaleTimeString()
                             : <span className={s.clockLoading}>Loading..</span>}
                     </span>
-                    <p>Refresh rate: {REFRESH_RATE_API_ABSTRACTAPI} seconds</p>
+                    <p>Refresh rate: {REFRESH_RATE_API_TIMEZONEDB} seconds</p>
                     {timeSecond && (
                         <div
                             className={s.clockTimeline}
-                            style={{animationDuration: `${REFRESH_RATE_API_ABSTRACTAPI}s`}}
+                            style={{animationDuration: `${REFRESH_RATE_API_TIMEZONEDB}s`}}
                         ></div>
                     )}
                 </div>
