@@ -22,7 +22,7 @@ const Clocks = () => {
     useEffect(() => {
         const intervalSecond = setInterval(async () => {
             await timeFetcher().then(data => setTimeSecond(data.data));
-        }, REFRESH_RATE_API_ABSTRACTAPI * 1000);
+        }, REFRESH_RATE_API_TIMEZONEDB * 1000);
 
         return () => clearInterval(intervalSecond);
     }, [timeSecond]);
