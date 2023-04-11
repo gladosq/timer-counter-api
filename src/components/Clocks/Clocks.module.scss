@@ -1,0 +1,86 @@
+.clockWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+
+  @media screen and (max-width: 600px) {
+    gap: 30px;
+  }
+}
+
+.clockInnerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .clockInfo {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+    margin-top: 60px;
+  }
+
+  p {
+    margin: 0;
+
+    &:first-child {
+      height: 40px;
+    }
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: auto;
+  }
+}
+
+.clockTimeline {
+  margin-top: 10px;
+  height: 4px;
+  animation: tickAnimation ease-in infinite;
+  animation-timing-function: ease-in;
+  background: #556832;
+  width: 0;
+  border-radius: 4px;
+}
+
+.clockInnerWrapper {
+  position: relative;
+}
+
+.clockLoading {
+  animation: pulsing 2s ease-in infinite;
+}
+
+
+@keyframes tickAnimation {
+  from {
+    opacity: 0.4;
+    width: 0;
+  }
+  to {
+    opacity: 0.8;
+    width: 100%;
+  }
+}
+
+@keyframes pulsing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

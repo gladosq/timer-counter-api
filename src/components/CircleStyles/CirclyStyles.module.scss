@@ -1,0 +1,60 @@
+.cssTricksList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cssTrickItemOneBlock {
+  width: 100px;
+  height: 50px;
+  background: #47c2ff;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.cssTricks {
+  margin-bottom: 60px;
+  margin-top: 100px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cssTricksItem {
+  height: 100px;
+
+  h3 {
+    font-size: 16px;
+  }
+}
+
+.cssTrickItemPseudo {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    background: #47c2ff;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+}
+
+.cssTrickItemClip {
+  position: relative;
+}
+
+.cssTrickInner {
+  width: 100px;
+  height: 50px;
+  overflow: hidden;
+  position: absolute;
+  background: #47c2ff;
+  clip-path: circle(50px at 50% 100%);
+}
